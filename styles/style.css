@@ -14,3 +14,9 @@ body{
     background-size: cover;
     background-size: contain;
 }
+
+.main-content{
+    max-width:58%;
+}
+
+

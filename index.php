@@ -1,5 +1,12 @@
 <?php
-require_once ("api/connexion.php");
+
 include ("include/header.php");
 
-echo'coucou ça marche sur l\'index';
+
+
+
+include ('api/get_all_games.php');
+include('list.php');
+
+
+include ("include/footer.php");
