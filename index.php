@@ -2,11 +2,12 @@
 
 include ("include/header.php");
 
+?> <div class='d-flex flex-wrap contain-cards justify-content-center '>
+<?php
+include('api/get_games.php');
+include('list.php'); ?>
 
+</div>
 
-
-include ('api/get_all_games.php');
-include('list.php');
-
-
+<?php
 include ("include/footer.php");

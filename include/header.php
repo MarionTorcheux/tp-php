@@ -12,9 +12,9 @@
     <title>tp-php-video-games</title>
 </head>
 <body>
-<div class="main-content container border border-primary">
-    <div class="row border border-warning">
-        <div class="col-6 border border-danger">
+<div class="main-content container">
+
+
 <header>
     <div class="logo"></div>
 
@@ -25,7 +25,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item" >
-                        <a class=" btn btn-primary"  href="#">Tous les jeux</a>
+                        <a class=" btn btn-primary"  href="./index.php">Tous les jeux</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle btn btn-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
