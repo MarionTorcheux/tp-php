@@ -3,48 +3,35 @@ include "connexion.php";
 global $connexion;
 
 
+$query = "SELECT * FROM jeu";
 
-
-$query = "SELECT jeu.titre, jeu.description, jeu.prix, jeu.date_sortie, jeu.image_path, jeu.note_id, jeu.age_id, console.label
+if (isset($_GET['console'])){
+    $query = "SELECT jeu.*, console.label
 FROM jeu
 INNER JOIN game_console
 ON jeu.id = game_console.jeu_id
 INNER JOIN console
-ON console.id = game_console.console_id";
-
-if (isset($_GET['console'])){
-    $query = $query." WHERE console.label='".$_GET['console']."'";
+ON console.id = game_console.console_id
+WHERE console.label='".$_GET['console']."'";
 }
 
-
-//$query2 = "SELECT console.label
-//FROM console
-//INNER JOIN game_console
-//ON jeu.id = game_console.jeu_id
-//INNER JOIN console
-//ON console.id = game_console.console_id";
-
 if ($stmt = mysqli_prepare($connexion, $query)) {
-    echo"ça marche";
 
     /* Exécution de la requête */
     mysqli_stmt_execute($stmt);
 
-    mysqli_stmt_bind_result($stmt, $titre, $description, $prix, $date_sortie, $image_path, $note_id, $age_id, $console);
-$array_result = [];
-    while(mysqli_stmt_fetch($stmt)){
+    $get_result = mysqli_stmt_get_result($stmt);
 
-//        echo $titre .' '. $prix .  '<br>';
-        $array_result[] =
-        ['titre' => $titre,
-        'description' => $description,
-        'prix' => $prix,
-        'date_sortie' => $date_sortie,
-        'image_path' => $image_path,
-        'note_id' => $note_id,
-        'age_id' => $age_id,
-        'console' => $console,
-        ];
+    while($data = mysqli_fetch_assoc($get_result)){
+
+        echo " <div class='card' style='width: 18rem;'>";
+        echo " <img src='images/games/" . $data['image_path'] . "' class='card-img-top img-game'>";
+        echo " <div class='card-body'>
+             <h5 class='card-title'> " . $data['titre'] . "</h5>
+            <p class='card-text'>" . ($data['prix'] / 100) . "€</p>
+            <a href='detail.php?id=" . $data['id'] . "' class='btn btn-primary'>Voir détail</a>
+           </div>
+        </div>";
 
     }
 

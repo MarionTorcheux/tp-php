@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
           crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>tp-php-video-games</title>
@@ -31,10 +31,13 @@
                         <a class="dropdown-toggle btn btn-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Par console
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/tp-php/?console=PS4">PS4</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+
+                        <ul class="dropdown-menu bg-primary">
+
+                            <?php require "./api/get_nav.php";
+                            get_nav();
+                            ?>
                         </ul>
                     </li>
                 </ul>
