@@ -1,19 +1,42 @@
 <?php
 include "connexion.php";
 global $connexion;
+include "./functions/list.php";
 
 
-$query = "SELECT * FROM jeu";
+
+$query = "SELECT jeu.* FROM jeu ";
 
 if (isset($_GET['console'])){
-    $query = "SELECT jeu.*, console.label
-FROM jeu
+    $query = $query."
 INNER JOIN game_console
 ON jeu.id = game_console.jeu_id
 INNER JOIN console
 ON console.id = game_console.console_id
 WHERE console.label='".$_GET['console']."'";
 }
+
+if (isset($_GET['age'])){
+    $query = $query." INNER JOIN restriction_age ON restriction_age.id = jeu.age_id
+    WHERE restriction_age.label='".$_GET['age']."'";
+}
+
+
+
+if (isset($_GET['tri'])) {
+    if ($_GET['tri'] == 'prixasc') {
+        $query = $query . " ORDER BY jeu.prix";
+    }if ($_GET['tri'] == 'prixdsc') {
+        $query = $query . " ORDER BY jeu.prix DESC";
+    }if ($_GET['tri'] == 'notePresseAsc') {
+        $query = $query . " INNER JOIN note ON note.id = jeu.note_id ORDER BY note.note_media DESC";
+    }if ($_GET['tri'] == 'noteUserAsc') {
+        $query = $query . " INNER JOIN note ON note.id = jeu.note_id ORDER BY note.note_utilisateur DESC";
+    }
+
+}
+
+
 
 if ($stmt = mysqli_prepare($connexion, $query)) {
 
@@ -24,14 +47,7 @@ if ($stmt = mysqli_prepare($connexion, $query)) {
 
     while($data = mysqli_fetch_assoc($get_result)){
 
-        echo " <div class='card' style='width: 18rem;'>";
-        echo " <img src='images/games/" . $data['image_path'] . "' class='card-img-top img-game'>";
-        echo " <div class='card-body'>
-             <h5 class='card-title'> " . $data['titre'] . "</h5>
-            <p class='card-text'>" . ($data['prix'] / 100) . "€</p>
-            <a href='detail.php?id=" . $data['id'] . "' class='btn btn-primary'>Voir détail</a>
-           </div>
-        </div>";
+        affiche_list($data);
 
     }
 

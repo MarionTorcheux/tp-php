@@ -1,12 +1,9 @@
 body{
-    background-image: url("../images/backgroung-image.png");
-    background-attachment:fixed;
-    background-repeat:no-repeat;
-    background-size: cover;
+
 }
 
 nav{
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     margin-top:50px;
 }
 
@@ -18,7 +15,9 @@ nav{
     background-repeat:no-repeat;
     background-size: contain;
     margin-top:30px;
+
 }
+
 
 .main-content{
     max-width:58%;
@@ -27,11 +26,17 @@ nav{
 .img-game{
     width: 100%;
     height: 390px;
+    transition:transform 0.3s;
+}
+
+.img-game:hover{
+    transform:scale(1.10);
 }
 
 .contain-cards{
 
     gap:30px 20px;
+
 }
 
 .img-pegi{
@@ -40,5 +45,38 @@ nav{
     padding:2px;
     border-radius: 5px;
     margin-right:5px;
+}
+
+.img-pegi-nav{
+    width:30px;
+}
+
+
+
+/* -------------------------- Responsive -------------------- */
+
+
+
+/* ----- à partir de 768px (tablette portrait et plus grand) -----*/
+@media(min-width: 768px) {
+
 
 }
+/* -----  entre 768px et 991px (seulement tablette portrait)-----*/
+@media(min-width: 768px) and (max-width:991px) {
+
+
+}
+
+
+/* ----- à partir de 992px (desktop et plus grand) -----*/
+@media(min-width: 992px) {
+   body { background-image: url("../images/backgroung-image.png");
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size: cover;}
+
+}
+
+
+

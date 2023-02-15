@@ -9,7 +9,7 @@ INNER JOIN restriction_age ON jeu.age_id = restriction_age.id
 WHERE jeu.id = '".$_GET['id']."'";
 
 $query_consoles = " SELECT console.label FROM jeu
- INNER JOIN game_console
+INNER JOIN game_console
 ON jeu.id = game_console.jeu_id
 INNER JOIN console
 ON console.id = game_console.console_id
