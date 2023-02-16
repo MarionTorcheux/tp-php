@@ -22,7 +22,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse border-bottom border-primary" id="navbarNavDropdown">
                 <ul class="navbar-nav">
 
                     <li class="nav-item" >
@@ -40,6 +40,10 @@
                             get_nav();
                             ?>
                         </ul>
+                    </li>
+
+                    <li class="nav-item" >
+                        <a class=" btn btn-primary"  href="./form_add_game.php">Ajouter un jeu</a>
                     </li>
                 </ul>
             </div>

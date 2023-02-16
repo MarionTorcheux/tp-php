@@ -30,7 +30,8 @@ while($data = mysqli_fetch_assoc($get_result)){
     $date = strtotime($data['date_sortie']);
     $date2 = date('d/m/Y', $date);
 
-    echo "<div class='card mb-3' style='max-width: 850px'>
+    echo "<div class='d-flex justify-content-center'>
+<div class='card mb-3' style='max-width: 850px'>
   <div class='row g-0'>
     <div class='col-md-4'>";
     echo " <img src='images/games/" . $data['image_path'] . "' class='img-fluid rounded-start'>";
@@ -45,10 +46,11 @@ while($data = mysqli_fetch_assoc($get_result)){
     echo "  <p class='card-text'><span class='font-weight-bold'>Synopsis : </span><small class='text-muted'>".$data['description']."</small></p>
         <p class='card-text'><small class='text-muted'>Date de sortie : <span class='text-primary'>".$date2." </span> </small></p>
         <p class='card-text'> <small class='text-muted'><img class='img-pegi' src='images/pegi/" .$data['img'] ."'> age : ".$data['label']." + </small></p>
-        <p class='card-text'> <small class='text-muted'> <i class='bi bi-star-fill' style='color:orange'></i> Avis presse <span class='text-primary'> ".$data['note_media']."</span>/20
-        <i class='bi bi-star-fill' style='color:orange' ></i> Avis utilisateur  <span class='text-primary'>  ".$data['note_utilisateur']."</span>/20 </small>  </p>
+        <p class='card-text float-start ms-5'> <small class='text-muted'> <i class='bi bi-star-fill' style='color:orange'></i> Avis presse <span class='text-primary'> ".$data['note_media']."</span>/20</p>
+       <p class='card-text float-end me-5'> <i class='bi bi-star-fill' style='color:orange' ></i> Avis utilisateur  <span class='text-primary'>  ".$data['note_utilisateur']."</span>/20 </small>  </p>
       </div>
     </div>
+  </div>
   </div>
 </div>";
 }

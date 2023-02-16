@@ -5,11 +5,10 @@ include "./functions/list.php";
 
 
 
-$query = "SELECT jeu.* FROM jeu ";
+$query = "SELECT jeu.* FROM jeu";
 
 if (isset($_GET['console'])){
-    $query = $query."
-INNER JOIN game_console
+    $query = $query." INNER JOIN game_console
 ON jeu.id = game_console.jeu_id
 INNER JOIN console
 ON console.id = game_console.console_id

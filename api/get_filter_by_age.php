@@ -12,7 +12,7 @@ function get_filter_by_age(){
     mysqli_stmt_execute($stmt);
     $get_result = mysqli_stmt_get_result($stmt);
     while ($data = mysqli_fetch_assoc($get_result)) {
-        echo "<li><a class='dropdown-item text-secondary' href='index.php?age=".$data['label']."'>PEGI ".$data['label']." <img class='img-pegi-nav' src='./images/pegi/".$data['image_path']."'></a></li>";
+        echo "<li><a class='dropdown-item text-secondary' href='index.php?age=".$data['label']."'> <img class='img-pegi-nav' src='./images/pegi/".$data['image_path']."'> PEGI ".$data['label']."</a></li>";
     }
 
     /* Fermeture du traitement */
