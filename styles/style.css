@@ -1,6 +1,3 @@
-body{
-
-}
 
 nav{
     margin-bottom: 50px;
@@ -23,18 +20,23 @@ nav{
     max-width:58%;
 }
 
+.menu-filtre > *{
+    margin-right: 5px;
+}
+
 .img-game{
     width: 100%;
     height: 390px;
     transition:transform 0.3s;
 }
 
+
 .img-game:hover{
     transform:scale(1.10);
 }
 
-.contain-cards{
 
+.contain-cards{
     gap:30px 20px;
 
 }
@@ -47,10 +49,15 @@ nav{
     margin-right:5px;
 }
 
+
 .img-pegi-nav{
     width:30px;
 }
 
+
+.badge_console{
+    margin-right:3px;
+}
 
 /* -------------------------- Responsive -------------------- */
 

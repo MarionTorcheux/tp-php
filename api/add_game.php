@@ -5,8 +5,6 @@ global $connexion;
 
 // on vérifie qu'on a toutes les données
 
-var_dump($_POST['titre']);
-
 if(isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['date']) && isset($_POST['img'])){
 
     // création de la requete préparée
@@ -29,7 +27,6 @@ if(isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['prix'
         header("Location: ../form_add_game.php?error=Veuillez saisir la description");
         exit();
     } else{
-        echo"ça passe dans le else";
 
         // on prépare la requête
         if($stmt = mysqli_prepare($connexion,$query)){
@@ -60,5 +57,6 @@ if(isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['prix'
             exit();
         }
     }
-    mysqli_close($connexion);
+
 }
+mysqli_close($connexion);

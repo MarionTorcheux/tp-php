@@ -1,6 +1,6 @@
 <?php
 
-$servername = 'database'; // mettre localhost pour travailler de la maison
+$servername = 'database';
 $username = 'admin';
 $password = 'admin';
 $bdd ='video-games';
